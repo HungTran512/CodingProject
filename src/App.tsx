@@ -31,12 +31,9 @@ const App: React.FC = () => {
   const search = async (query: string) => {
     try {
       const newProducts = await searchProducts(query);
-
+      setProducts(newProducts);
       if (newProducts.length === 0) {
-        setProducts(newProducts);
         setHasMore(false);
-      } else {
-        setProducts(newProducts);
       }
     } catch (error) {
       console.error("Error searching products:", error);
