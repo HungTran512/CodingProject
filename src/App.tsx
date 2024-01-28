@@ -5,7 +5,7 @@ import ProductList from "./components/ProductList";
 import { IProduct } from "./interfaces/Product.interface";
 import { getProducts } from "./api/ProductsApi";
 import { searchProducts } from "./api/searchApi";
-
+import "./App.css";
 const App: React.FC = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
 
@@ -32,6 +32,7 @@ const App: React.FC = () => {
     try {
       const newProducts = await searchProducts(query);
       setProducts(newProducts);
+      console.log(newProducts);
       if (newProducts.length === 0) {
         setHasMore(false);
       }

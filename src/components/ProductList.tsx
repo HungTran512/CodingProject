@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-
+import Slider from "react-slick";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { IProductListProps } from "../interfaces/Product.interface";
 
@@ -13,6 +13,13 @@ const ProductList: React.FC<IProductListProps> = ({
     initialLoad();
   }, []);
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
     <InfiniteScroll
       dataLength={products.length}
@@ -20,10 +27,17 @@ const ProductList: React.FC<IProductListProps> = ({
       hasMore={hasMore}
       loader={<div>Loading...</div>}
       endMessage={<div>You have reached the end</div>}
+      className="infiniteScroll"
     >
       {products.map((product) => (
         <div key={product.id} className="card">
-          <img src={product.images[0]} alt="Product" loading="lazy" />
+          <Slider {...settings}>
+            {product.images.map((image, index) => (
+              <div className="img-slider">
+                <img key={index} src={image} alt="Product" loading="lazy" />
+              </div>
+            ))}
+          </Slider>
           <div>
             <h3>{product.title}</h3>
             <p>Price: ${product.price}</p>
