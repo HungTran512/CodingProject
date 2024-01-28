@@ -19,7 +19,7 @@ const ProductList: React.FC<IProductListProps> = ({
       next={loadMore}
       hasMore={hasMore}
       loader={<div>Loading...</div>}
-      endMessage={<div>No more products to load</div>}
+      endMessage={<div>You have reached the end</div>}
     >
       {products.map((product) => (
         <div key={product.id} className="card">
