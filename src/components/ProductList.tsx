@@ -24,7 +24,7 @@ const ProductList: React.FC<IProductListProps> = ({
       {products.map((product) => (
         <div key={product.id} className="card">
           <img src={product.images[0]} alt="Product" loading="lazy" />
-          <div className="product-info">
+          <div>
             <h3>{product.title}</h3>
             <p>Price: ${product.price}</p>
           </div>
