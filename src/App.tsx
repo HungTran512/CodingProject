@@ -33,6 +33,7 @@ const App: React.FC = () => {
       const newProducts = await searchProducts(query);
 
       if (newProducts.length === 0) {
+        setProducts(newProducts);
         setHasMore(false);
       } else {
         setProducts(newProducts);
