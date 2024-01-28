@@ -16,7 +16,6 @@ const App: React.FC = () => {
   const loadInitialProducts = async () => {
     try {
       const newProducts = await getProducts(20, 0);
-
       if (newProducts.length === 0) {
         setHasMore(false);
       } else {

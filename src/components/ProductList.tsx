@@ -27,7 +27,7 @@ const ProductList: React.FC<IProductListProps> = ({
       hasMore={hasMore}
       loader={<div>Loading...</div>}
       endMessage={<div>You have reached the end</div>}
-      className="infiniteScroll"
+      className="infinite-scroll"
     >
       {products.map((product) => (
         <div key={product.id} className="card">
@@ -40,7 +40,12 @@ const ProductList: React.FC<IProductListProps> = ({
           </Slider>
           <div>
             <h3>{product.title}</h3>
-            <p>Price: ${product.price}</p>
+            <div className="ho-flex">
+              <p>Price: ${product.price}</p>
+              <p>Discount: {product.discountPercentage}%</p>
+            </div>
+            <p>Rating: {product.rating}</p>
+            <p>Stock: {product.stock}</p>
           </div>
         </div>
       ))}
